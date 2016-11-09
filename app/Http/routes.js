@@ -21,3 +21,4 @@ Route.on('/').render('welcome')
 Route.get('/example', 'TodoListController.example')
 
 Route.post('/users', 'UserController.create')
+Route.get('/users/:id', 'UserController.show')
