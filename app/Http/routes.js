@@ -19,3 +19,5 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 Route.get('/example', 'TodoListController.example')
+
+Route.post('/users', 'UserController.create')
