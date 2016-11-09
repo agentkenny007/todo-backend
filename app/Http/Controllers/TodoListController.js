@@ -17,6 +17,13 @@ class TodoListController {
     response.status(201).json(todoList)
   }
 
+  * index (request, response) {
+    let userId = request.param('id')
+    let lists = yield TodoList.query().where('user_id', userId)
+
+    response.json(lists)
+  }
+
 }
 
 module.exports = TodoListController
