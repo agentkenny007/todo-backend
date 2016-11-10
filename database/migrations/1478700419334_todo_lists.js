@@ -8,7 +8,7 @@ class TodoListsTableSchema extends Schema {
     this.create('todo_lists', (table) => {
       table.increments()
       table.timestamps()
-      table.string('name')
+      table.string('header')
       table.integer('user_id')
       table.foreign('user_id').references('users.id')
     })

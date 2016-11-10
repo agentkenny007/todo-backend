@@ -9,7 +9,7 @@ class TasksTableSchema extends Schema {
       table.increments()
       table.timestamps()
       table.string('title')
-      table.boolean('done')
+      table.boolean('complete')
       table.integer('todo_list_id')
       table.foreign('todo_list_id').references('todo_lists.id')
       table.date('due_date')
