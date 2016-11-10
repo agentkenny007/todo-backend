@@ -20,8 +20,22 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 Route.get('/example', 'TodoListController.example')
 
-Route.post('/users', 'UserController.create')
-Route.get('/users/:id', 'UserController.show')
+// User routes
+Route.post('/user/register', 'UserController.register')
+Route.post('/user/login', 'UserController.register')
+Route.get('/users/:user_id', 'UserController.show').middleware('auth')
+Route.put('/users/:user_id', 'UserController.update')
+Route.delete('/users/:user_id', 'UserController.destroy')
 
-Route.post('/users/:id/todo-lists', 'TodoListController.create')
-Route.get('/users/:id/todo-lists', 'TodoListController.index')
+// Todo List routes
+Route.get('/users/:user_id/todo-lists', 'TodoListController.index')
+Route.post('/users/:user_id/todo-lists', 'TodoListController.create')
+Route.get('/users/:user_id/todo-lists/:list_id', 'TodoController.show')
+Route.put('/users/:user_id/todo-lists/:list_id', 'TodoController.update')
+Route.delete('/users/:user_id/todo-lists/:list_id', 'TodoController.destroy')
+
+// Task routes
+Route.get('/users/:user_id/todo-lists/:list_id/tasks', 'TaskController.index')
+Route.post('/users/:user_id/todo-lists/:list_id/task/:task_id', 'TaskController.create')
+Route.put('/users/:user_id/todo-lists/:list_id/task/:task_id', 'TaskController.update')
+Route.delete('/users/:user_id/todo-lists/:list_id/task/:task_id', 'TaskController.destroy')
